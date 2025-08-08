@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organisasi IPM wuled - Ikatan Pelajar Muhammadiyah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/s1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <audio id="autoPlaySong" src="song.mp3" preload="auto" loop></audio>
+
+    <div id="permissionPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2 class="text-2xl font-bold mb-4">Izin Interaksi</h2>
+            <p class="text-gray-700 mb-6">Apakah Anda mengizinkan lagu untuk diputar secara otomatis di website ini?</p>
+            <button onclick="playSong()"
+                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-colors duration-200">
+                Izinkan
+            </button>
+        </div>
+    </div>
+
+    <header id="navbar" class="navbar fixed top-0 left-0 w-full z-50 py-4 transition-all duration-500">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="logo.png" alt="Logo" class="h-12 w-12 rounded-full mr-3">
+                <a href="#" class="logo-text text-2xl font-extrabold">PC <span>IPM</span> wuled</a>
+            </div>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#beranda" class="nav-link font-semibold">Beranda</a>
+                <a href="#program" class="nav-link font-semibold">Progam</a>
+                <a href="#anggota" class="nav-link font-semibold">Anggota</a>
+                <a href="#berita" class="nav-link font-semibold">Berita & Acara</a>
+                <a href="#kontak" class="nav-link font-semibold">Kontak</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 pt-20">
+            <div class="bg-white bg-opacity-80 backdrop-blur-md rounded-b-lg mx-4 p-4 shadow-xl">
+                <a href="#beranda" class="block py-3 px-4 rounded hover:bg-gray-100">Beranda</a>
+                <a href="#program" class="block py-3 px-4 rounded hover:bg-gray-100">Progam</a>
+                <a href="#anggota" class="block py-3 px-4 rounded hover:bg-gray-100">Anggota</a>
+                <a href="#berita" class="block py-3 px-4 rounded hover:bg-gray-100">Berita & Acara</a>
+                <a href="#kontak" class="block py-3 px-4 rounded hover:bg-gray-100">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="beranda" class="hero-section text-white relative">
+        <video autoplay loop muted playsinline preload="auto" class="hero-video">
+            <source src="video.mp4" type="video/mp4">
+            Video Anda tidak didukung oleh browser ini.
+        </video>
+        <div class="relative z-10 px-4 max-w-5xl mx-auto">
+            <h1 id="hero-title"
+                class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg typing-animation">
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 opacity-90 drop-shadow-md">
+                Membentuk Pelajar Berkemajuan, Berakhlak Mulia, dan Berdaya Saing.
+            </p>
+            <a href="#pendaftaran"
+                class="inline-block bg-yellow-600 hover:bg-yellow-700 text-dark font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-lg">
+                Bergabung Bersama Kami
+            </a>
+        </div>
+    </section>
+    <section id="profil" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Tentang Organisasi IPM wuled</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2">
+                    <img src="https://placehold.co/600x400/d1d5db/4b5563?text=Gambar+Profil+IPM"
+                        alt="Profil Organisasi IPM wuled" class="rounded-xl shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="md:order-1">
+                    <h3 class="text-3xl font-semibold text-gray-800 mb-6">Membangun Generasi Pelajar Berkemajuan</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Pimpinan Cabang Ikatan Pelajar Muhammadiyah (PC IPM) wuled adalah organisasi otonom Muhammadiyah
+                        yang berfokus pada pembinaan dan pengembangan potensi pelajar. Kami bertekad menciptakan
+                        kader-kader muda yang beriman, berilmu, dan berakhlak mulia, siap menghadapi tantangan masa
+                        depan.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed pb-6">
+                        Dengan berbagai program dan kegiatan yang inovatif, kami berupaya menumbuhkan jiwa kepemimpinan,
+                        kreativitas, dan kepedulian sosial di kalangan pelajar. Organisasi IPM wuled menjadi wadah bagi
+                        pelajar untuk tumbuh dan berkembang secara holistik.
+                    </p>
+                    <a href="#"
+                        class="inline-block bg-white hover:bg-gray-100 text-blue-600 hover:text-blue-800 font-medium py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-lg">
+                        Baca Selengkapnya &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="program" class="py-16 bg-yellow-400 text-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Perbidangan</h2>
+            <p class="text-lg text-center opacity-90 max-w-3xl mx-auto mb-12">
+                Organisasi PC IPM Wuled memiliki berbagai bidang yang mendukung pengembangan dan pembinaan anggota
+                secara menyeluruh. Setiap bidang memiliki peran dan fungsi strategis dalam menjalankan visi dan misi
+                organisasi
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-white text-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x300/FACC15/333333?text=Program+Dasar" alt="Program Dasar"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">KDI <br>(Kajian Dakwah Islam)</h3>
+                        <p class="text-sm text-gray-600">
+                            Bertugas memperkuat pemahaman keislaman serta menyelenggarakan kegiatan dakwah yang
+                            membentuk karakter spiritual kader.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white text-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x300/228B22/ffffff?text=Program+Menengah" alt="Program Menengah"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Bidang ASBO <br>(Apresiasi Seni Budaya dan Olahraga)</h3>
+                        <p class="text-sm text-gray-600">
+                            Mengembangkan potensi seni, budaya, dan olahraga sebagai sarana ekspresi dan kreativitas
+                            anggota.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white text-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x300/FFD700/333333?text=Program+Lanjutan" alt="Program Lanjutan"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Bidang PIP <br>(Pengkajian Ilmu Pengetahuan)</h3>
+                        <p class="text-sm text-gray-600">
+                            Mendorong semangat literasi, keilmuan, dan daya kritis kader melalui kegiatan edukatif dan
+                            ilmiah.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white text-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/400x300/228B22/ffffff?text=Pengembangan+Kader"
+                        alt="Pengembangan Kader" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Bidang Perkaderan</h3>
+                        <p class="text-sm text-gray-600">
+                            Fokus pada proses pengkaderan yang terstruktur untuk mencetak kader yang berkualitas,
+                            militan, dan berdaya saing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="anggota" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Profil Anggota</h2>
+            <div class="carousel-container relative">
+                <div class="carousel-track flex" id="carousel-track">
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                    <div class="carousel-card">
+                        <div
+                            class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6 text-center h-full">
+                            <img src="https://placehold.co/150x150/228B22/ffffff?text=Anggota+2" alt="Profil Anggota 2"
+                                class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-green-500">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Nama Anggota 2</h3>
+
+                            <p class="text-gray-600 text-sm mb-4">
+                                "IPM wuled membentuk saya menjadi pribadi yang lebih berani dan bertanggung jawab."
+                            </p>
+
+                            <a href="https://instagram.com/anggota2_ig" target="_blank"
+                                class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <!-- SVG Instagram icon -->
+                                </svg>
+                                @anggota2_ig
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tombol navigasi carousel -->
+                <div class="carousel-navigation">
+                    <button class="carousel-button prev">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <button class="carousel-button next">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+    </section>
+
+    <section id="berita" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Berita & Acara Terkini</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img src="https://placehold.co/600x400/D1D5DB/4B5563?text=Gambar+Berita+1" alt="Gambar Berita 1"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span
+                            class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 inline-block">Acara</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Musyawarah Cabang IPM wuled</h3>
+                        <p class="text-gray-700 text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img src="https://placehold.co/600x400/D1D5DB/4B5563?text=Gambar+Berita+2" alt="Gambar Berita 2"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 inline-block">Berita</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Pelatihan Kepemimpinan Dasar</h3>
+                        <p class="text-gray-700 text-sm">
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.
+                        </p>
+                    </div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+                    <img src="https://placehold.co/600x400/D1D5DB/4B5563?text=Gambar+Berita+3" alt="Gambar Berita 3"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span
+                            class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 inline-block">Berita</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Program Studi Banding ke Organisasi Lain</h3>
+                        <p class="text-gray-700 text-sm">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                            pariatur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-block bg-yellow-400 hover:bg-yellow-600 text-dark font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-lg">
+                    Lihat Semua Berita
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="pendaftaran" class="py-16 bg-yellow-400 text-dark">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">Pendaftaran Anggota Baru</h2>
+            <p class="text-lg mb-10 max-w-3xl mx-auto opacity-90">
+                Ayo bergabung dengan Organisasi IPM Wuled dan jadilah bagian dari gerakan pelajar berkemajuan! Daftarkan
+                diri Anda sekarang untuk mengikuti berbagai program pembinaan dan kegiatan yang inspiratif.
+            </p>
+            <a href="#"
+                class="inline-block bg-white hover:bg-gray-100 text-dark font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-lg">
+                Daftar Sekarang
+            </a>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Hubungi Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informasi Kontak</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <svg class="w-8 h-8 mr-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m11.314-11.314L12 4.001l-4.243 4.243m0 0L3.414 16.586A2 2 0 005 20h14a2 2 0 001.586-3.414L17.657 16.657z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg text-gray-700">Alamat</h4>
+                                <p class="text-gray-600">Jl. Contoh No. 123, Kelurahan Wuled, Kecamatan Wuled,
+                                    Pekalongan, Jawa Tengah</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-8 h-8 mr-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg text-gray-700">Telepon</h4>
+                                <p class="text-gray-600">(0285) 123456</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-8 h-8 mr-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 13H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-lg text-gray-700">Email</h4>
+                                <p class="text-gray-600">info@pcipmWuled.or.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Kirim Pesan</h3>
+                    <form class="space-y-4 bg-gray-300 p-8 rounded-xl shadow-lg">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" name="name"
+                                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Nama Anda">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email"
+                                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Email Anda">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Pesan</label>
+                            <textarea id="message" name="message" rows="5"
+                                class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                                placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-yellow-400 hover:bg-yellow-600 text-dark font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transform hover:scale-105 transition-all duration-300 ease-in-out">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-10">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Tentang PC IPM Wuled</h3>
+                <p class="text-sm leading-relaxed">
+                    Pimpinan Cabang Ikatan Pelajar Muhammadiyah Wuled berkomitmen untuk membina generasi muda yang
+                    berakhlak mulia, berilmu, dan siap berkontribusi bagi masyarakat.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Tautan Cepat</h3>
+                <ul class="space-y-2">
+                    <li><a href="#beranda" class="text-sm hover:text-white transition-colors duration-200">Beranda</a>
+                    </li>
+                    <li><a href="#profil" class="text-sm hover:text-white transition-colors duration-200">Profil
+                            Kami</a></li>
+                    <li><a href="#program" class="text-sm hover:text-white transition-colors duration-200">Program</a>
+                    </li>
+                    <li><a href="#berita" class="text-sm hover:text-white transition-colors duration-200">Berita &
+                            Artikel</a></li>
+                    <li><a href="#anggota" class="text-sm hover:text-white transition-colors duration-200">Anggota</a>
+                    </li>
+                    <li><a href="#kontak" class="text-sm hover:text-white transition-colors duration-200">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Kontak Kami</h3>
+                <p class="text-sm mb-2">Jl. Contoh No. 123, Wuled, Pekalongan</p>
+                <p class="text-sm mb-2">Telepon: (0285) 123456</p>
+                <p class="text-sm">Email: info@pcipmWuled.or.id</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.428 1.107C11.353.11 9.923 0 9.475 0h-.07C5.178 0 2.71 3.427 2.71 6.843v.07c0 .448-.11 1.878.887 2.953.997 1.075 2.427 1.185 2.875 1.185h.07c3.416 0 5.884-3.427 5.884-6.843v-.07c0-.448.11-1.878-.887-2.953ZM15.572 1.107C16.647.11 18.077 0 18.525 0h.07C22.822 0 25.29 3.427 25.29 6.843v.07c0 .448.11 1.878-.887 2.953-.997 1.075-2.427 1.185-2.875 1.185h-.07c-3.416 0-5.884-3.427-5.884-6.843v-.07c0-.448-.11-1.878.887-2.953Z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M8.29 20.251c1.803 1.065 3.985 1.695 6.276 1.695 7.577 0 11.734-6.253 11.734-11.734 0-.178 0-.356-.012-.534A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646A4.124 4.124 0 0021.6 4.038a8.287 8.287 0 01-2.606.996 4.135 4.135 0 00-7.033 3.755 11.65 11.65 0 01-8.457-4.287 4.134 4.134 0 001.27 5.512 4.09 4.09 0 01-1.853-.514c0 .021 0 .042 0 .063a4.132 4.132 0 003.313 4.035 4.135 4.135 0 01-1.86.07 4.135 4.135 0 003.867 2.887A8.293 8.293 0 012 18.188 11.608 11.608 0 008.29 20.251z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold text-white mb-4">Lokasi Kami</h3>
+                <div
+                    class="bg-gray-700 rounded-lg overflow-hidden h-36 flex items-center justify-center text-gray-400 text-xs">
+                    [Placeholder Peta Lokasi Google Maps]
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+            &copy; 2025 Organisasi IPM Wuled. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/089630961095" target="_blank" class="whatsapp-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="whatsapp-icon">
+                <path fill="currentColor"
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            <span class="whatsapp-tooltip">Hubungi Kami via WhatsApp</span>
+        </a>
+    </div>
+    <script>
+        // Jika ingin menambahkan efek tambahan
+        document.querySelector('.whatsapp-button').addEventListener('click', function () {
+            // Anda bisa menambahkan tracking atau efek di sini
+            console.log('WhatsApp button clicked');
+
+            // Contoh: Mengirim data ke Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'WhatsApp',
+                    'event_label': 'Floating Button'
+                });
+            }
+        });
+        // Deklarasi variabel global
+        let mobileMenuButton, mobileMenu, carouselTrack, currentSlide = 0, autoSlideInterval;
+        let audioElement; // Variabel untuk audio
+
+        // Fungsi untuk handle scroll navbar
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 50) {
+                navbar.classList.add('navbar-glass');
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-glass');
+                navbar.classList.remove('navbar-scrolled');
+            }
+        }
+
+        // Jalankan saat halaman dimuat dan di-scroll
+        window.addEventListener('DOMContentLoaded', handleNavbarScroll);
+        window.addEventListener('scroll', handleNavbarScroll);
+
+        // Fungsi untuk mobile menu
+        // Fungsi untuk mobile menu
+        function setupMobileMenu() {
+            mobileMenuButton = document.getElementById('mobile-menu-button');
+            mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('show');
+
+                    // Tambahkan icon close ketika menu terbuka
+                    const icon = mobileMenuButton.querySelector('svg');
+                    if (mobileMenu.classList.contains('show')) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    }
+                });
+            }
+        }
+
+        // Fungsi untuk carousel
+        function setupCarousel() {
+            const track = document.getElementById('carousel-track');
+            const cards = document.querySelectorAll('.carousel-card');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+
+            let currentIndex = 0;
+            const cardCount = cards.length;
+            // Fungsi untuk update posisi carousel
+            function updateCarousel() {
+                const cardWidth = cards[0].offsetWidth + 20; // Lebar card + gap
+                track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+
+            // Tombol next
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % cardCount;
+                updateCarousel();
+            });
+
+            // Tombol prev
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+                updateCarousel();
+            });
+
+            // Responsive saat resize
+            window.addEventListener('resize', updateCarousel);
+
+            // Inisialisasi awal
+            updateCarousel();
+        }
+
+        // Panggil saat DOM siap
+        document.addEventListener('DOMContentLoaded', setupCarousel);
+
+        // Fungsi untuk animasi ketik yang berulang dengan span
+        function typeWriter() {
+            const heroTitle = document.getElementById('hero-title');
+            if (!heroTitle) return;
+
+            // Teks biasa dan teks yang ingin diberi span
+            const fullText = "Pimpinan Cabang Ikatan Pelajar Muhammadiyah wuled";
+            const spanStartIndex = fullText.indexOf("Muhammadiyah"); // Posisi awal teks yang ingin di-span
+            let isDeleting = false;
+            let text = '';
+            let charIndex = 0;
+            let typingSpeed = 100;
+            let deletingSpeed = 50;
+            let pauseBetween = 2000;
+
+            function type() {
+                if (isDeleting) {
+                    // Mode menghapus - hapus semua teks tanpa terkecuali
+                    text = text.substring(0, text.length - 1);
+                    updateTitle();
+                    charIndex--;
+
+                    if (text === '') {
+                        isDeleting = false;
+                        setTimeout(type, pauseBetween);
+                    } else {
+                        setTimeout(type, deletingSpeed);
+                    }
+                } else {
+                    // Mode mengetik
+                    text = fullText.substring(0, charIndex + 1);
+                    updateTitle();
+                    charIndex++;
+
+                    if (text === fullText) {
+                        isDeleting = true;
+                        setTimeout(type, pauseBetween);
+                    } else {
+                        setTimeout(type, typingSpeed);
+                    }
+                }
+            }
+
+            function updateTitle() {
+                // Jika teks sudah mencapai bagian yang ingin di-span
+                if (charIndex >= spanStartIndex && spanStartIndex !== -1) {
+                    const plainText = fullText.substring(0, spanStartIndex);
+                    const spanText = fullText.substring(spanStartIndex, charIndex + 1);
+                    heroTitle.innerHTML = plainText + `<span class="text-yellow-400 font-bold">${spanText}</span>`;
+                } else {
+                    heroTitle.textContent = text;
+                }
+            }
+
+            heroTitle.classList.add('typing-animation');
+            type();
+        }
+        // Fungsi untuk setup audio yang looping
+        function setupAudio() {
+            audioElement = document.getElementById('autoPlaySong');
+            if (!audioElement) return;
+
+            // Set properti loop
+            audioElement.loop = true;
+
+            // Event handler untuk error audio
+            audioElement.addEventListener('error', function () {
+                console.error("Error memutar audio:", this.error);
+            });
+
+            // Event handler untuk ketika audio berakhir (sebagai backup)
+            audioElement.addEventListener('ended', function () {
+                this.currentTime = 0;
+                this.play().catch(e => console.error("Gagal memutar ulang audio:", e));
+            });
+        }
+
+        // Fungsi untuk popup audio
+        function setupAudioPopup() {
+            const permissionPopup = document.getElementById('permissionPopup');
+            if (!permissionPopup) return;
+
+            window.playSong = function () {
+                permissionPopup.style.display = 'none';
+                setupAudio(); // Setup audio sebelum memutar
+                audioElement.play().catch(e => console.error("Autoplay was prevented:", e));
+            };
+
+            permissionPopup.style.display = 'flex';
+        }
+
+        // Inisialisasi semua fungsi saat DOM siap
+        document.addEventListener('DOMContentLoaded', function () {
+            window.onscroll = handleNavbarScroll;
+            setupMobileMenu();
+            setupCarousel();
+            typeWriter();
+            setupAudioPopup();
+        });
+    </script>
+</body>
+
+</html>
