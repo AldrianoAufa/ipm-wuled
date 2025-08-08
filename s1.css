@@ -1,0 +1,460 @@
+     /* WhatsApp Floating Button */
+     .whatsapp-float {
+         position: fixed;
+         bottom: 30px;
+         right: 30px;
+         z-index: 100;
+     }
+
+     .whatsapp-button {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 60px;
+         height: 60px;
+         background-color: #25D366;
+         border-radius: 50%;
+         box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+         transition: all 0.3s ease;
+         position: relative;
+     }
+
+     .whatsapp-button:hover {
+         background-color: #128C7E;
+         transform: scale(1.1);
+         box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+     }
+
+     .whatsapp-icon {
+         width: 32px;
+         height: 32px;
+         color: white;
+     }
+
+     .whatsapp-tooltip {
+         position: absolute;
+         right: 70px;
+         background: white;
+         color: #333;
+         padding: 8px 12px;
+         border-radius: 8px;
+         font-size: 14px;
+         font-weight: 500;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+         opacity: 0;
+         transition: opacity 0.3s ease;
+         pointer-events: none;
+         white-space: nowrap;
+     }
+
+     .whatsapp-button:hover .whatsapp-tooltip {
+         opacity: 1;
+     }
+
+     /* Animasi Pulse */
+     @keyframes pulse {
+         0% {
+             transform: scale(1);
+         }
+
+         50% {
+             transform: scale(1.1);
+         }
+
+         100% {
+             transform: scale(1);
+         }
+     }
+
+     .whatsapp-button {
+         animation: pulse 2s infinite;
+     }
+
+     /* Responsive */
+     @media (max-width: 768px) {
+         .whatsapp-float {
+             bottom: 20px;
+             right: 20px;
+         }
+
+         .whatsapp-button {
+             width: 50px;
+             height: 50px;
+         }
+
+         .whatsapp-icon {
+             width: 28px;
+             height: 28px;
+         }
+     }
+
+     /* Tambahkan di bagian tau file CSS Anda */
+     .navbar-glass {
+         background: rgba(255, 255, 255, 0.2);
+         backdrop-filter: blur(10px);
+         -webkit-backdrop-filter: blur(10px);
+         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+     }
+
+     /* Untuk state awal navbar (saat di atas) */
+     .navbar {
+         transition: all 0.5s ease;
+         background: transparent;
+     }
+
+     /* Warna teks saat di scroll */
+     .navbar-scrolled .nav-link,
+     .navbar-scrolled .logo-text,
+     .navbar-scrolled .mobile-menu-button {
+         color: #1a202c !important;
+     }
+
+     /* Warna teks saat di atas */
+     .nav-link,
+     .logo-text,
+     .mobile-menu-button {
+         color: white !important;
+         transition: color 0.3s ease;
+     }
+
+     body {
+         font-family: 'Inter', sans-serif;
+         scroll-behavior: smooth;
+         overflow-x: hidden;
+         /* Mencegah scroll horizontal */
+     }
+
+     /* Gaya untuk Hero Section */
+     .hero-section {
+         position: relative;
+         z-index: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         text-align: center;
+         min-height: 80vh;
+         /* Tinggi minimal hero section */
+         overflow: hidden;
+         /* Penting untuk video agar tidak meluap */
+     }
+
+     .hero-video {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         min-width: 100%;
+         min-height: 100%;
+         width: auto;
+         height: auto;
+         z-index: -2;
+         /* Di bawah overlay */
+         transform: translate(-50%, -50%);
+         object-fit: cover;
+         /* Memastikan video mengisi area */
+         /* will-change: transform; /* Bisa ditambahkan jika video juga menyebabkan jank saat scroll */
+     }
+
+     .hero-section::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: rgba(0, 0, 0, 0.4);
+         /* Overlay gelap untuk keterbacaan teks */
+         z-index: -1;
+     }
+
+     /* Gaya untuk Navbar saat sticky */
+     .navbar-fixed {
+         position: fixed;
+         top: 0;
+         width: 100%;
+         background-color: rgba(255, 255, 255, 0.98);
+         /* Putih sedikit transparan */
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+         transition: background-color 0.3s ease, box-shadow 0.3s ease;
+         z-index: 1000;
+     }
+
+     .navbar-fixed .nav-link,
+     .navbar-fixed .logo-text {
+         color: #1a202c;
+         /* Warna teks gelap saat navbar sticky */
+     }
+
+     .navbar-fixed .nav-link:hover {
+         color: #FFD700;
+         /* Warna hover kuning */
+     }
+
+     .navbar-fixed .mobile-menu-button {
+         color: #1a202c;
+         /* Warna ikon mobile menu gelap */
+     }
+
+     /* Gaya awal navbar */
+     .navbar {
+         transition: all 0.3s ease;
+     }
+
+     .nav-link {
+         transition: color 0.3s ease;
+     }
+
+     /* Gaya untuk Carousel/Slider Anggota */
+     .carousel-container {
+         position: relative;
+         overflow: hidden;
+         padding: 0 50px;
+         /* Memberi ruang untuk tombol navigasi */
+     }
+
+     /* Carousel Navigation */
+     .carousel-navigation {
+         position: absolute;
+         top: 50%;
+         left: 0;
+         right: 0;
+         display: flex;
+         justify-content: space-between;
+         transform: translateY(-50%);
+         pointer-events: none;
+     }
+
+     .carousel-track {
+         display: flex;
+         transition: transform 1s ease-in-out;
+         /* Menambahkan will-change untuk mengoptimalkan animasi transform */
+         will-change: transform;
+     }
+
+     .carousel-card {
+         flex: 0 0 auto;
+         /* Penting agar kartu tidak menyusut */
+         width: 100%;
+         /* Default 100% untuk mobile */
+         padding: 0.5rem;
+         /* Padding antar kartu */
+     }
+
+     @media (min-width: 768px) {
+         .carousel-card {
+             width: calc(100% / 2);
+             /* 2 kartu per baris di tablet */
+         }
+     }
+
+     @media (min-width: 1024px) {
+         .carousel-card {
+             width: calc(100% / 3);
+             /* 3 kartu per baris di desktop */
+         }
+     }
+
+     .carousel-button {
+         pointer-events: all;
+         background: rgba(179, 179, 179, 0.8);
+         backdrop-filter: blur(5px);
+         border: none;
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+         transition: all 0.3s ease;
+         z-index: 10;
+     }
+
+
+     .carousel-button:hover {
+         background: rgba(192, 190, 190, 0.9);
+         transform: scale(1.1);
+     }
+
+     .carousel-button svg {
+         width: 24px;
+         height: 24px;
+         stroke-width: 2;
+     }
+
+     .carousel-button.prev {
+         left: 1rem;
+     }
+
+     .carousel-button.next {
+         right: 1rem;
+     }
+
+     /* Carousel Track */
+     .carousel-track {
+         display: flex;
+         transition: transform 0.5s ease;
+         gap: 20px;
+         /* Jarak antara card */
+     }
+
+     .carousel-card {
+         flex: 0 0 calc(100% / 3 - 20px);
+         /* 3 card terlihat sekaligus */
+         min-width: 0;
+         /* Memastikan card tidak melebar */
+     }
+
+
+     /* Responsive */
+     @media (max-width: 1024px) {
+         .carousel-card {
+             flex: 0 0 calc(100% / 2 - 15px);
+             /* 2 card untuk tablet */
+         }
+     }
+
+     @media (max-width: 768px) {
+         .carousel-card {
+             flex: 0 0 100%;
+             /* 1 card untuk mobile */
+         }
+
+         .carousel-container {
+             padding: 0 40px;
+             /* Ruang lebih kecil untuk mobile */
+         }
+     }
+
+     .carousel-dots {
+         display: flex;
+         justify-content: center;
+         margin-top: 1.5rem;
+     }
+
+     .carousel-dot {
+         width: 10px;
+         height: 10px;
+         background-color: #ccc;
+         border-radius: 50%;
+         margin: 0 0.5rem;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+     }
+
+     .carousel-dot.active {
+         background-color: #FFD700;
+         /* Warna kuning aktif */
+     }
+
+     span {
+         color: #FFD700;
+     }
+
+     /* Gaya untuk Pop-up */
+     .popup-overlay {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         backdrop-filter: blur(5px);
+         -webkit-backdrop-filter: blur(5px);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 9999;
+     }
+
+     .popup-content {
+         background-color: white;
+         padding: 2rem;
+         border-radius: 1rem;
+         text-align: center;
+         max-width: 90%;
+         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+         animation: fadeIn 0.5s ease-in-out;
+         background: rgba(255, 255, 255, 0.8);
+         backdrop-filter: blur(10px);
+         -webkit-backdrop-filter: blur(10px);
+         border-radius: 1rem;
+         border: 1px solid rgba(255, 255, 255, 0.3);
+     }
+
+     @keyframes fadeIn {
+         from {
+             opacity: 0;
+             transform: translateY(-20px);
+         }
+
+         to {
+             opacity: 1;
+             transform: translateY(0);
+         }
+     }
+
+     /* Gaya untuk animasi ketik */
+     .typing-animation::after {
+         content: '|';
+         animation: blink-caret .75s step-end infinite;
+         font-weight: 300;
+     }
+
+     @keyframes blink-caret {
+
+         from,
+         to {
+             border-color: transparent
+         }
+
+         50% {
+             border-color: #FFD700;
+         }
+     }
+
+     /* Mobile Menu Styles */
+     #mobile-menu {
+         position: fixed;
+         top: 80px;
+         /* Sesuaikan dengan tinggi navbar */
+         left: 0;
+         width: 100%;
+         background-color: white;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         display: none;
+         flex-direction: column;
+         padding: 1rem 0;
+         z-index: 40;
+     }
+
+     #mobile-menu a {
+         padding: 0.75rem 1.5rem;
+         color: #4b5563;
+         text-decoration: none;
+         transition: all 0.3s ease;
+     }
+
+     #mobile-menu a:hover {
+         background-color: #d7e744;
+         color: #1f2937;
+     }
+
+     /* Tambahkan animasi untuk menu mobile */
+     @keyframes slideDown {
+         from {
+             opacity: 0;
+             transform: translateY(-20px);
+         }
+
+         to {
+             opacity: 1;
+             transform: translateY(0);
+         }
+     }
+
+     #mobile-menu.show {
+         display: flex;
+         animation: slideDown 0.3s ease-out forwards;
+     }
